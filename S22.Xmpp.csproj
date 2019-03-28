@@ -128,6 +128,7 @@
     <Compile Include="Extensions\XEP-0231\BobData.cs" />
     <Compile Include="Extensions\XEP-0279\ServerIpCheck.cs" />
     <Compile Include="Im\SubscriptionRequest.cs" />
+    <Compile Include="Im\UserSearchResult.cs" />
     <Compile Include="XmppExceptions.cs" />
     <Compile Include="ErrorCondition.cs" />
     <Compile Include="ErrorType.cs" />

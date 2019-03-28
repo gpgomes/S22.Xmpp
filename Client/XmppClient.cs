@@ -1366,13 +1366,35 @@ namespace S22.Xmpp.Client {
 			return items;
 		}
 
-		/// <summary>
-		/// Closes the connection with the XMPP server. This automatically disposes
-		/// of the object.
-		/// </summary>
-		/// <exception cref="ObjectDisposedException">The XmppClient object has been
-		/// disposed.</exception>
-		public void Close() {
+        /// <summary>
+        /// Retorna data from users.
+        /// </summary>
+        /// <returns>Retorna loucuras.</returns>
+        /// <exception cref="NotSupportedException">The server does not support the
+        /// 'SearchUsers' extension and does not support privacy-list management.
+        /// </exception>
+        /// <exception cref="XmppErrorException">The server returned an XMPP error code.
+        /// Use the Error property of the XmppErrorException to obtain the specific
+        /// error condition.</exception>
+        /// <exception cref="XmppException">The server returned invalid data or another
+        /// unspecified XMPP error occurred.</exception>
+        /// <exception cref="InvalidOperationException">The XmppClient instance is
+        /// not connected to a remote host.</exception>
+        /// <exception cref="ObjectDisposedException">The XmppClient object
+        /// has been disposed.</exception>
+        public List<UserSearchResult> SearchUsers(string searchServer, string searchField, string searchParam)
+        {
+            AssertValid();
+            return im.SearchUsers(searchServer, searchField, searchParam);
+        }
+
+        /// <summary>
+        /// Closes the connection with the XMPP server. This automatically disposes
+        /// of the object.
+        /// </summary>
+        /// <exception cref="ObjectDisposedException">The XmppClient object has been
+        /// disposed.</exception>
+        public void Close() {
 			if (disposed)
 				throw new ObjectDisposedException(GetType().FullName);
 			Dispose();
