@@ -1445,6 +1445,38 @@ namespace S22.Xmpp.Client {
 				throw new InvalidOperationException("Not authenticated with XMPP server.");
 		}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="itemId"></param>
+        /// <param name="data"></param>
+        public void Publish(string node, string itemId = null, params XmlElement[] data)
+        {
+            this.pep.Publish(node, null, data);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jid"></param>
+        /// <param name="node"></param>
+        public IEnumerable<XmlElement> RetrieveItems(Jid jid, string node)
+        {
+            return this.pep.RetrieveItems(jid, node);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="cb"></param>
+        public void Subscribe(string node, Action<Jid, XmlElement> cb)
+        {
+            Console.WriteLine("Subscribe");
+            this.pep.Subscribe(node, cb);
+        }
+
 		/// <summary>
 		/// Initializes the various XMPP extension modules.
 		/// </summary>
