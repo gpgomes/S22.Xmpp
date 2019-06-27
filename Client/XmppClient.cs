@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Net.Security;
+using System.Xml;
 
 namespace S22.Xmpp.Client {
 	/// <summary>
